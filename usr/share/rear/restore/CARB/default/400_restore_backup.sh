@@ -10,7 +10,7 @@ StopIfError "Could not change directory to /opt/BUAgent"
 LogPrint "Recovering from carbonite vault"
 
 builtin trap "echo USR2!" USR2
-./VV RESTORE ttt /param=ttt_00000005.vpr
+./VV RESTORE ttt /param=ttt_00000001.vpr
 
 LogPrintIfError "Error was reported during carbonite restore"
 popd >/dev/null
