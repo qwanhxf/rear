@@ -10,8 +10,12 @@ StopIfError "Could not change directory to /opt/BUAgent"
 LogPrint "Recovering from carbonite vault"
 
 builtin trap "echo USR2!" USR2
-./VV RESTORE ttt /param=ttt_00000005.vpr
+./VV RESTORE ttt /param=ttt_00000001.vpr
 
-LogPrintIfError "Error was reported during carbonite restore"
+#LogPrintIfError "Error was reported during carbonite restore"
+
+#recreate /etc/mtab
+ln -sf /proc/self/mounts $TARGET_FS_ROOT/etc/mtab >&2
+
 popd >/dev/null
 
